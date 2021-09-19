@@ -1,0 +1,71 @@
+﻿@model IEnumerable<ProgramskoInzenjerstvo.Models.BiljeNarudzba>
+
+@{
+    ViewBag.Title = "Narudzba";
+}
+
+<h1 class="text-uppercase text-primary text-left" style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">
+    Narudzba</h1>
+
+    <p>
+        <button type="submit" class="btn btn-sm btn-default next" title="Dodaj">
+            @Html.ActionLink("Novo", "Create")
+
+        </button>
+    </p>
+<br />
+    <table class="table" id="example">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Kolicina)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CijenaDogovoreno)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Bilje.Rod)
+                </th>
+                <th>
+                    Mjerna jedinica
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PosiljkaNarudzba.IDPosiljkaNarudzba)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Kolicina)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CijenaDogovoreno)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Bilje.Rod)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MjernaJedinica.MjernaJedinica1)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PosiljkaNarudzba.IDPosiljkaNarudzba)
+                    </td>
+                    <td>
+                        @Html.ActionLink(" ", "Edit", new { id = item.IDBiljeNarudzba }, new { @class = "glyphicon glyphicon-edit btn btn-warning" })
+                        @Html.ActionLink(" ", "Details", new { id = item.IDBiljeNarudzba }, new { @class = "glyphicon glyphicon-info-sign btn btn-info" })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    @section scripts{
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/dt-1.10.25/datatables.min.css" />
+
+        <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/dt-1.10.25/datatables.min.js"></script>
+        
+    }

@@ -1,0 +1,100 @@
+﻿@model IEnumerable<ProgramskoInzenjerstvo.Models.Rasadnik>
+
+@{
+    ViewBag.Title = "Rasadnici";
+}
+
+<h2 class="text-uppercase text-primary text-left" style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Rasadnici:</h2>
+<div class="btn-group" role="group" aria-label="Basic example">
+    <button type="button" class="btn btn-secondary">
+        <a href="~/Biljes/Index" style="">Prikazi biljke</a>
+    </button>
+    <button type="button" class="btn btn-default">
+        <a href="~/Kupacs/Index" style="">Prikazi kupce</a>
+    </button>
+</div>
+
+<br />
+<br />
+
+<br />
+<button type="submit" class="btn btn-sm btn-default next" title="Dodaj">
+    @Html.ActionLink("Kreiraj novo", "Create")
+
+</button>
+<br />
+
+<br />
+<table class="table" id="example" style="table-layout: fixed;">
+    <thead>
+        <tr>
+            <th>
+                Lokacija
+
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Vrsta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Bilje.Rod)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Lokacija)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Vrsta)
+
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Bilje.Rod)
+                </td>
+
+                <td style="text-align: center;">
+
+                    @Html.ActionLink(" ", "Edit", new { id = item.IDRasadnik }, new { @class = "glyphicon glyphicon-edit btn btn-warning" })
+
+                    @Html.ActionLink(" ", "Details", new { id = item.IDRasadnik }, new { @class = "glyphicon glyphicon-info-sign btn btn-info" })
+
+
+                    @Html.ActionLink(" ", "Delete", new { id = item.IDRasadnik }, new { @class = "glyphicon glyphicon-trash btn btn-danger" })
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+@section scripts{
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/dt-1.10.25/datatables.min.css" />
+
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/dt-1.10.25/datatables.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#example').DataTable({
+                language: {
+                    search: "Pretraga",
+                    info: "_START_ - _END_ (ukupno _TOTAL_)",
+                    lengthMenu: "Prikaži _MENU_ zapisa",
+                    paginate: {
+                        first: "Prva",
+                        previous: "Prethodna",
+                        next: "Sljedeća",
+                        last: "Zadnja"
+                    },
+                    emptyTable: "Nema podataka za prikaz",
+                    info: "_START_ - _END_ od ukupno _TOTAL_ zapisa",
+                    infoEmpty: "Nema podataka za prikaz",
+                    infoFiltered: "(filtrirano od ukupno _MAX_ zapisa)",
+                    zeroRecords: "Ne postoje traženi podaci"
+                }
+            });
+        });
+    </script>
+}
+

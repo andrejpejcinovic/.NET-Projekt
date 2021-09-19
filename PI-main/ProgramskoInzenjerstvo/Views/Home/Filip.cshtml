@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewBag.Title = "Filip";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Filip</h2>
+
+
+<h1 class="text text-primary text-left">Andrej</h1>
+<br />
+
+<h2 class="text text-left" style="color:seagreen">Projektni zadaci:</h2>
+<hr />
+<div class="row">
+    <div class="col-md-4" style="font-size:20px;">
+        <h2></h2>
+        <p>
+        <p>
+            Moje ime je Andrej.<br />
+            Ja sam se bavio izradom pogleda na sve biljke te kupovinu, i njihovim funkcionalnostima.
+        </p>
+        <p>
+            <br />
+            @Html.ActionLink("Biljke", "Index", "Biljes", new { @class = "btn btn-default" })
+
+        </p>
+    </div>
+    <div class="col-md-4" style="font-size:20px;">
+        <h2></h2>
+        <p>
+        <p>
+            Također sam napravio projektnu dokumentaciju.<br />
+            Projektna dokumentacija nam služi kao uvid u zahtjeve i funkcionalnosti projekta nekoj
+            osobi koja nije radila na projektu.
+        </p>
+
+
+    </div>
+
+
+</div>

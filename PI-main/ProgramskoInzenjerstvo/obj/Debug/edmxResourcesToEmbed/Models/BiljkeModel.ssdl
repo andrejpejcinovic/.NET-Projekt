@@ -1,0 +1,361 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Bilje">
+    <Key>
+      <PropertyRef Name="IDBilje" />
+    </Key>
+    <Property Name="IDBilje" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Cijena" Type="decimal" Precision="8" Scale="2" Nullable="false" />
+    <Property Name="Rod" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Vrsta" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BiljeKupovina">
+    <Key>
+      <PropertyRef Name="IDBiljeKupovina" />
+    </Key>
+    <Property Name="IDBiljeKupovina" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Kolicina" Type="int" Nullable="false" />
+    <Property Name="CijenaKupovno" Type="decimal" Precision="8" Scale="2" Nullable="false" />
+    <Property Name="IDMjernaJedinica" Type="int" />
+    <Property Name="IDPosiljkaKupovina" Type="int" />
+    <Property Name="IDBilje" Type="int" />
+  </EntityType>
+  <EntityType Name="BiljeNarudzba">
+    <Key>
+      <PropertyRef Name="IDBiljeNarudzba" />
+    </Key>
+    <Property Name="IDBiljeNarudzba" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Kolicina" Type="int" Nullable="false" />
+    <Property Name="CijenaDogovoreno" Type="decimal" Precision="8" Scale="2" Nullable="false" />
+    <Property Name="IDMjernaJedinica" Type="int" />
+    <Property Name="IDPosiljkaNarudzba" Type="int" />
+    <Property Name="IDBilje" Type="int" />
+  </EntityType>
+  <EntityType Name="BiljeUporaba">
+    <Key>
+      <PropertyRef Name="IDBiljeUporaba" />
+    </Key>
+    <Property Name="IDBiljeUporaba" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Uporaba" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="IDBilje" Type="int" />
+  </EntityType>
+  <EntityType Name="BiljnaPutovnica">
+    <Key>
+      <PropertyRef Name="IDBiljnaPutovnica" />
+    </Key>
+    <Property Name="IDBiljnaPutovnica" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Naziv" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Drzava" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Podrijetlo" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Kod" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="IDBilje" Type="int" />
+  </EntityType>
+  <EntityType Name="Kupac">
+    <Key>
+      <PropertyRef Name="IDKupac" />
+    </Key>
+    <Property Name="IDKupac" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Ime" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Prezime" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="BrojTel" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MjernaJedinica">
+    <Key>
+      <PropertyRef Name="IDMjernaJedinica" />
+    </Key>
+    <Property Name="IDMjernaJedinica" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MjernaJedinica" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NarodnoIme">
+    <Key>
+      <PropertyRef Name="IDNarodnoIme" />
+    </Key>
+    <Property Name="IDNarodnoIme" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NarodnoIme" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="IDBilje" Type="int" />
+  </EntityType>
+  <EntityType Name="PosiljkaKupovina">
+    <Key>
+      <PropertyRef Name="IDPosiljkaKupovina" />
+    </Key>
+    <Property Name="IDPosiljkaKupovina" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Datum" Type="date" Nullable="false" />
+    <Property Name="IDKupac" Type="int" />
+    <Property Name="IDPosiljkaStanje" Type="int" />
+  </EntityType>
+  <EntityType Name="PosiljkaNarudzba">
+    <Key>
+      <PropertyRef Name="IDPosiljkaNarudzba" />
+    </Key>
+    <Property Name="IDPosiljkaNarudzba" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Datum" Type="date" Nullable="false" />
+    <Property Name="IDKupac" Type="int" />
+    <Property Name="IDPosiljkaStanje" Type="int" />
+  </EntityType>
+  <EntityType Name="PosiljkaStanje">
+    <Key>
+      <PropertyRef Name="IDPosiljkaStanje" />
+    </Key>
+    <Property Name="IDPosiljkaStanje" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Stanje" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Rasadnik">
+    <Key>
+      <PropertyRef Name="IDRasadnik" />
+    </Key>
+    <Property Name="IDRasadnik" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Vrsta" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Lokacija" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="IDBilje" Type="int" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <Association Name="FK__BiljeKupo__IDBil__7C4F7684">
+    <End Role="Bilje" Type="Self.Bilje" Multiplicity="0..1" />
+    <End Role="BiljeKupovina" Type="Self.BiljeKupovina" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Bilje">
+        <PropertyRef Name="IDBilje" />
+      </Principal>
+      <Dependent Role="BiljeKupovina">
+        <PropertyRef Name="IDBilje" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BiljeKupo__IDMje__7A672E12">
+    <End Role="MjernaJedinica" Type="Self.MjernaJedinica" Multiplicity="0..1" />
+    <End Role="BiljeKupovina" Type="Self.BiljeKupovina" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MjernaJedinica">
+        <PropertyRef Name="IDMjernaJedinica" />
+      </Principal>
+      <Dependent Role="BiljeKupovina">
+        <PropertyRef Name="IDMjernaJedinica" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BiljeKupo__IDPos__7B5B524B">
+    <End Role="PosiljkaKupovina" Type="Self.PosiljkaKupovina" Multiplicity="0..1" />
+    <End Role="BiljeKupovina" Type="Self.BiljeKupovina" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PosiljkaKupovina">
+        <PropertyRef Name="IDPosiljkaKupovina" />
+      </Principal>
+      <Dependent Role="BiljeKupovina">
+        <PropertyRef Name="IDPosiljkaKupovina" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BiljeNaru__IDBil__74AE54BC">
+    <End Role="Bilje" Type="Self.Bilje" Multiplicity="0..1" />
+    <End Role="BiljeNarudzba" Type="Self.BiljeNarudzba" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Bilje">
+        <PropertyRef Name="IDBilje" />
+      </Principal>
+      <Dependent Role="BiljeNarudzba">
+        <PropertyRef Name="IDBilje" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BiljeNaru__IDMje__72C60C4A">
+    <End Role="MjernaJedinica" Type="Self.MjernaJedinica" Multiplicity="0..1" />
+    <End Role="BiljeNarudzba" Type="Self.BiljeNarudzba" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MjernaJedinica">
+        <PropertyRef Name="IDMjernaJedinica" />
+      </Principal>
+      <Dependent Role="BiljeNarudzba">
+        <PropertyRef Name="IDMjernaJedinica" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BiljeNaru__IDPos__73BA3083">
+    <End Role="PosiljkaNarudzba" Type="Self.PosiljkaNarudzba" Multiplicity="0..1" />
+    <End Role="BiljeNarudzba" Type="Self.BiljeNarudzba" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PosiljkaNarudzba">
+        <PropertyRef Name="IDPosiljkaNarudzba" />
+      </Principal>
+      <Dependent Role="BiljeNarudzba">
+        <PropertyRef Name="IDPosiljkaNarudzba" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BiljeUpor__IDBil__00200768">
+    <End Role="Bilje" Type="Self.Bilje" Multiplicity="0..1" />
+    <End Role="BiljeUporaba" Type="Self.BiljeUporaba" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Bilje">
+        <PropertyRef Name="IDBilje" />
+      </Principal>
+      <Dependent Role="BiljeUporaba">
+        <PropertyRef Name="IDBilje" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BiljnaPut__IDBil__03F0984C">
+    <End Role="Bilje" Type="Self.Bilje" Multiplicity="0..1" />
+    <End Role="BiljnaPutovnica" Type="Self.BiljnaPutovnica" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Bilje">
+        <PropertyRef Name="IDBilje" />
+      </Principal>
+      <Dependent Role="BiljnaPutovnica">
+        <PropertyRef Name="IDBilje" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__NarodnoIm__IDBil__0B91BA14">
+    <End Role="Bilje" Type="Self.Bilje" Multiplicity="0..1" />
+    <End Role="NarodnoIme" Type="Self.NarodnoIme" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Bilje">
+        <PropertyRef Name="IDBilje" />
+      </Principal>
+      <Dependent Role="NarodnoIme">
+        <PropertyRef Name="IDBilje" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PosiljkaK__IDKup__68487DD7">
+    <End Role="Kupac" Type="Self.Kupac" Multiplicity="0..1" />
+    <End Role="PosiljkaKupovina" Type="Self.PosiljkaKupovina" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kupac">
+        <PropertyRef Name="IDKupac" />
+      </Principal>
+      <Dependent Role="PosiljkaKupovina">
+        <PropertyRef Name="IDKupac" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PosiljkaK__IDPos__693CA210">
+    <End Role="PosiljkaStanje" Type="Self.PosiljkaStanje" Multiplicity="0..1" />
+    <End Role="PosiljkaKupovina" Type="Self.PosiljkaKupovina" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PosiljkaStanje">
+        <PropertyRef Name="IDPosiljkaStanje" />
+      </Principal>
+      <Dependent Role="PosiljkaKupovina">
+        <PropertyRef Name="IDPosiljkaStanje" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PosiljkaN__IDKup__628FA481">
+    <End Role="Kupac" Type="Self.Kupac" Multiplicity="0..1" />
+    <End Role="PosiljkaNarudzba" Type="Self.PosiljkaNarudzba" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kupac">
+        <PropertyRef Name="IDKupac" />
+      </Principal>
+      <Dependent Role="PosiljkaNarudzba">
+        <PropertyRef Name="IDKupac" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PosiljkaN__IDPos__6383C8BA">
+    <End Role="PosiljkaStanje" Type="Self.PosiljkaStanje" Multiplicity="0..1" />
+    <End Role="PosiljkaNarudzba" Type="Self.PosiljkaNarudzba" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PosiljkaStanje">
+        <PropertyRef Name="IDPosiljkaStanje" />
+      </Principal>
+      <Dependent Role="PosiljkaNarudzba">
+        <PropertyRef Name="IDPosiljkaStanje" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Rasadnik__IDBilj__07C12930">
+    <End Role="Bilje" Type="Self.Bilje" Multiplicity="0..1" />
+    <End Role="Rasadnik" Type="Self.Rasadnik" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Bilje">
+        <PropertyRef Name="IDBilje" />
+      </Principal>
+      <Dependent Role="Rasadnik">
+        <PropertyRef Name="IDBilje" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ModelStoreContainer">
+    <EntitySet Name="Bilje" EntityType="Self.Bilje" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BiljeKupovina" EntityType="Self.BiljeKupovina" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BiljeNarudzba" EntityType="Self.BiljeNarudzba" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BiljeUporaba" EntityType="Self.BiljeUporaba" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BiljnaPutovnica" EntityType="Self.BiljnaPutovnica" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Kupac" EntityType="Self.Kupac" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MjernaJedinica" EntityType="Self.MjernaJedinica" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NarodnoIme" EntityType="Self.NarodnoIme" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PosiljkaKupovina" EntityType="Self.PosiljkaKupovina" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PosiljkaNarudzba" EntityType="Self.PosiljkaNarudzba" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PosiljkaStanje" EntityType="Self.PosiljkaStanje" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Rasadnik" EntityType="Self.Rasadnik" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__BiljeKupo__IDBil__7C4F7684" Association="Self.FK__BiljeKupo__IDBil__7C4F7684">
+      <End Role="Bilje" EntitySet="Bilje" />
+      <End Role="BiljeKupovina" EntitySet="BiljeKupovina" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BiljeKupo__IDMje__7A672E12" Association="Self.FK__BiljeKupo__IDMje__7A672E12">
+      <End Role="MjernaJedinica" EntitySet="MjernaJedinica" />
+      <End Role="BiljeKupovina" EntitySet="BiljeKupovina" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BiljeKupo__IDPos__7B5B524B" Association="Self.FK__BiljeKupo__IDPos__7B5B524B">
+      <End Role="PosiljkaKupovina" EntitySet="PosiljkaKupovina" />
+      <End Role="BiljeKupovina" EntitySet="BiljeKupovina" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BiljeNaru__IDBil__74AE54BC" Association="Self.FK__BiljeNaru__IDBil__74AE54BC">
+      <End Role="Bilje" EntitySet="Bilje" />
+      <End Role="BiljeNarudzba" EntitySet="BiljeNarudzba" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BiljeNaru__IDMje__72C60C4A" Association="Self.FK__BiljeNaru__IDMje__72C60C4A">
+      <End Role="MjernaJedinica" EntitySet="MjernaJedinica" />
+      <End Role="BiljeNarudzba" EntitySet="BiljeNarudzba" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BiljeNaru__IDPos__73BA3083" Association="Self.FK__BiljeNaru__IDPos__73BA3083">
+      <End Role="PosiljkaNarudzba" EntitySet="PosiljkaNarudzba" />
+      <End Role="BiljeNarudzba" EntitySet="BiljeNarudzba" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BiljeUpor__IDBil__00200768" Association="Self.FK__BiljeUpor__IDBil__00200768">
+      <End Role="Bilje" EntitySet="Bilje" />
+      <End Role="BiljeUporaba" EntitySet="BiljeUporaba" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BiljnaPut__IDBil__03F0984C" Association="Self.FK__BiljnaPut__IDBil__03F0984C">
+      <End Role="Bilje" EntitySet="Bilje" />
+      <End Role="BiljnaPutovnica" EntitySet="BiljnaPutovnica" />
+    </AssociationSet>
+    <AssociationSet Name="FK__NarodnoIm__IDBil__0B91BA14" Association="Self.FK__NarodnoIm__IDBil__0B91BA14">
+      <End Role="Bilje" EntitySet="Bilje" />
+      <End Role="NarodnoIme" EntitySet="NarodnoIme" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PosiljkaK__IDKup__68487DD7" Association="Self.FK__PosiljkaK__IDKup__68487DD7">
+      <End Role="Kupac" EntitySet="Kupac" />
+      <End Role="PosiljkaKupovina" EntitySet="PosiljkaKupovina" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PosiljkaK__IDPos__693CA210" Association="Self.FK__PosiljkaK__IDPos__693CA210">
+      <End Role="PosiljkaStanje" EntitySet="PosiljkaStanje" />
+      <End Role="PosiljkaKupovina" EntitySet="PosiljkaKupovina" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PosiljkaN__IDKup__628FA481" Association="Self.FK__PosiljkaN__IDKup__628FA481">
+      <End Role="Kupac" EntitySet="Kupac" />
+      <End Role="PosiljkaNarudzba" EntitySet="PosiljkaNarudzba" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PosiljkaN__IDPos__6383C8BA" Association="Self.FK__PosiljkaN__IDPos__6383C8BA">
+      <End Role="PosiljkaStanje" EntitySet="PosiljkaStanje" />
+      <End Role="PosiljkaNarudzba" EntitySet="PosiljkaNarudzba" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Rasadnik__IDBilj__07C12930" Association="Self.FK__Rasadnik__IDBilj__07C12930">
+      <End Role="Bilje" EntitySet="Bilje" />
+      <End Role="Rasadnik" EntitySet="Rasadnik" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

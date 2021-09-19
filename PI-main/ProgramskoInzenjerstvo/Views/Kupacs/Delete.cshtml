@@ -1,0 +1,65 @@
+﻿@model ProgramskoInzenjerstvo.Models.Kupac
+
+@{
+    ViewBag.Title = "Obrisi";
+}
+
+<h2>Obrisi</h2>
+
+<h3>Jeste li sigurni?</h3>
+<div>
+    <h4>Kupac</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Ime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Prezime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Prezime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BrojTel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BrojTel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Obrisi" class="btn btn-default" /> |
+            @Html.ActionLink("Natrag na listu", "Index")
+        </div>
+    }
+    @if (ViewBag.Message != null)
+    {
+        <script type="text/javascript">
+            window.onsubmit = function () {
+                alert("@ViewBag.Message");
+            };
+        </script>
+    }
+</div>

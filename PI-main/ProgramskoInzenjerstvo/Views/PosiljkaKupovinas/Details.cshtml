@@ -1,0 +1,42 @@
+﻿@model ProgramskoInzenjerstvo.Models.PosiljkaKupovina
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>PosiljkaKupovina</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Datum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Datum)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Kupac.Ime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Kupac.Ime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PosiljkaStanje.Stanje)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PosiljkaStanje.Stanje)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IDPosiljkaKupovina }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

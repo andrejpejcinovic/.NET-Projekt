@@ -1,0 +1,61 @@
+﻿@model ProgramskoInzenjerstvo.Models.BiljnaPutovnica
+
+@{
+    ViewBag.Title = "GetAll";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3>BILJNA PUTOVNICA</h3>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Naziv)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Naziv)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Drzava)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Drzava)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Podrijetlo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Podrijetlo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Kod)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Kod)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Bilje.Rod)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Bilje.Rod)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IDBiljnaPutovnica }, new { @class = "btn btn-warning" }) |
+    @Html.ActionLink("Back to List", "Index", new { @class = "btn btn-info" }) |
+    @Html.ActionLink("Print", "PrintAll")
+
+
+</p>

@@ -1,0 +1,95 @@
+﻿@model IEnumerable<ProgramskoInzenjerstvo.Models.Kupac>
+
+@{
+    ViewBag.Title = "Kupci";
+}
+
+<h2 class="text-uppercase text-primary text-left" style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Kupci</h2>
+
+<p>
+    <button type="submit" class="btn btn-sm btn-default next" title="Dodaj">
+        @Html.ActionLink("Kreiraj novo", "Create")
+
+        <i class="fas fa-pen"></i>
+    </button>
+</p>
+<br />
+
+<table class=" table" id="example">
+    <thead>
+        <tr>
+            <th>
+                Prezime
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ime)
+            </th>
+            <th>
+                Broj telefona
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                Upravljanje
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Prezime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ime)
+
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BrojTel)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+
+                    @Html.ActionLink(" ", "Edit", new { id = item.IDKupac }, new { @class = "glyphicon glyphicon-edit btn btn-warning" })
+
+                    @Html.ActionLink(" ", "Details", new { id = item.IDKupac }, new { @class = "glyphicon glyphicon-info-sign btn btn-info" })
+
+
+                    @Html.ActionLink(" ", "Delete", new { id = item.IDKupac }, new { @class = "glyphicon glyphicon-trash btn btn-danger" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section scripts{
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/dt-1.10.25/datatables.min.css" />
+
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/dt-1.10.25/datatables.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#example').DataTable({
+                language: {
+                    search: "Pretraga",
+                    info: "_START_ - _END_ (ukupno _TOTAL_)",
+                    lengthMenu: "Prikaži _MENU_ zapisa",
+                    paginate: {
+                        first: "Prva",
+                        previous: "Prethodna",
+                        next: "Sljedeća",
+                        last: "Zadnja"
+                    },
+                    emptyTable: "Nema podataka za prikaz",
+                    info: "_START_ - _END_ od ukupno _TOTAL_ zapisa",
+                    infoEmpty: "Nema podataka za prikaz",
+                    infoFiltered: "(filtrirano od ukupno _MAX_ zapisa)",
+                    zeroRecords: "Ne postoje traženi podaci"
+                }
+            });
+        });
+    </script>
+}

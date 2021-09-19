@@ -1,0 +1,106 @@
+﻿@model IEnumerable<ProgramskoInzenjerstvo.Models.Bilje>
+
+@{
+    ViewBag.Title = "Index";
+}
+<br />
+<br />
+<h1 class="text-uppercase text-primary text-left" style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Bilje</h1>
+<br />
+
+
+<br />
+<p>
+    <button type="submit"  class="btn-toolbar btn-group-lg btn" title="Dodaj">
+        @Html.ActionLink("Kreiraj novo", "Create")
+
+    </button>
+</p>
+<br />
+
+<table class=" table" id="example" >
+    <thead>
+        <tr>
+            <th style="font-size:larger;">
+                Vrsta
+            </th>
+            <th style="font-size:larger;">
+                Rod
+            </th>
+            <th style="font-size:larger;">
+                Cijena
+            </th>
+            <th style="font-size:larger;">
+                Upravljanje
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Vrsta)
+                    <a href="~/BiljnaPutovnicas/Index" style="float:right;" class=" btn-sm btn-success">Putovnica</a>
+
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Rod)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cijena)
+                </td>
+
+                <td>
+                    
+                    @Html.ActionLink(" ", "Edit", new { id = item.IDBilje }, new { @class = "glyphicon glyphicon-edit btn btn-warning" })
+
+                    @Html.ActionLink(" ", "Details", new { id = item.IDBilje }, new { @class = "glyphicon glyphicon-info-sign btn btn-info" })
+
+
+                    @Html.ActionLink(" ", "Delete", new { id = item.IDBilje }, new { @class = "glyphicon glyphicon-trash btn btn-danger" })
+
+
+                    <a href="~/BiljeKupovinas/Index" style="float:right;" class="btn btn-default btn-sm">Kupi</a>
+                    <a href="~/BiljeNarudzbas/Index" style="float:right;" class="btn btn-primary btn-sm">Naruči</a>
+
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+
+@section scripts{
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/dt-1.10.25/datatables.min.css" />
+
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/dt-1.10.25/datatables.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#example').DataTable({
+                language: {
+                    search: "Pretraga",
+                    info: "_START_ - _END_ (ukupno _TOTAL_)",
+                    lengthMenu: "Prikaži _MENU_ zapisa",
+                    paginate: {
+                        first: "Prva",
+                        previous: "Prethodna",
+                        next: "Sljedeća",
+                        last: "Zadnja"
+                    },
+                    emptyTable: "Nema podataka za prikaz",
+
+                    info: "_START_ - _END_ od ukupno _TOTAL_ zapisa",
+                    infoEmpty: "Nema podataka za prikaz",
+                    infoFiltered: "(filtrirano od ukupno _MAX_ zapisa)",
+                    zeroRecords: "Ne postoje traženi podaci"
+                }
+            });
+        });
+    </script>
+}
+
+
+

@@ -1,0 +1,34 @@
+﻿@model ProgramskoInzenjerstvo.Models.NarodnoIme
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>NarodnoIme</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NarodnoIme1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NarodnoIme1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Bilje.Rod)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Bilje.Rod)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IDNarodnoIme }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

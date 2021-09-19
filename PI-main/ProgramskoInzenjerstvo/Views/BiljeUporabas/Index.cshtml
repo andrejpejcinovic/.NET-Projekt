@@ -1,0 +1,40 @@
+﻿@model IEnumerable<ProgramskoInzenjerstvo.Models.BiljeUporaba>
+
+@{
+    ViewBag.Title = "Uporaba";
+}
+
+<h2>Uporaba</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Uporaba)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Bilje.Rod)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Uporaba)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Bilje.Rod)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.IDBiljeUporaba }) |
+                @Html.ActionLink("Details", "Details", new { id = item.IDBiljeUporaba }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.IDBiljeUporaba })
+            </td>
+        </tr>
+    }
+
+</table>

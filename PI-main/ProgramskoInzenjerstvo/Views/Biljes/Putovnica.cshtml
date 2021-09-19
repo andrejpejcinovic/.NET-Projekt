@@ -1,0 +1,72 @@
+﻿@model ProgramskoInzenjerstvo.Models.Bilje
+
+@{
+    ViewBag.Title = "Putovnica";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container">
+    <hr />
+    <dl class="dl-horizontal">
+        <h3> Biljna putovnica</h3>
+
+
+
+
+        <table class="table">
+            
+            <tr>
+                <th>Vrsta</th>
+                <td>@Html.DisplayFor(model => model.Vrsta)</td>
+            </tr>
+            <tr>
+                <th>Država</th>
+                <td>BIH</td>
+            </tr>
+            <tr>
+                <th>Država podrijetla</th>
+                <td>BIH</td>
+            </tr>
+            <tr>
+                <th>Kod proizvođača</th>
+                <td>124556834654</td>
+            </tr>
+            <tr>
+                <th>Broj registra</th>
+                <td>65564</td>
+            </tr>
+        </table>
+    </dl>
+</div>
+<div class="w3-right footer">
+    <button id="print" >Printaj</button>
+</div>
+
+@section scripts{
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<script src="~/Scripts/printThis.js"></script>
+    <script>
+        $("#print").click(function(){
+            $('.container').printThis({
+            debug: false,               // show the iframe for debugging
+            importCSS: true,            // import parent page css
+            importStyle: false,         // import style tags
+            printContainer: true,       // print outer container/$.selector
+            loadCSS: "",                // path to additional css file - use an array [] for multiple
+            pageTitle: "Biljna putovnica",              // add title to print page
+            removeInline: false,        // custom selectors to filter inline styles. removeInline must be true
+            printDelay: 333,            // variable print delay
+            header: null,               // prefix to html
+            footer: null,               // postfix to html
+            base: false,                // preserve the BASE tag or accept a string for the URL
+            formValues: true,           // preserve input/form values
+            canvas: false,              // copy canvas content
+            doctypeString: '<!DOCTYPE html>',       // enter a different doctype for older markup
+            removeScripts: false,       // remove script tags from print content
+            copyTagClasses: false,      // copy classes from the html & body tag
+                      // function called before iframe is removed
+            });
+        })
+    </script>
+    }

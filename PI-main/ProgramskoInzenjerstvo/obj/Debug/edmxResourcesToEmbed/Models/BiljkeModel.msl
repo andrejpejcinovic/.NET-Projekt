@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Entities">
+    <EntitySetMapping Name="Biljes">
+      <EntityTypeMapping TypeName="Model.Bilje">
+        <MappingFragment StoreEntitySet="Bilje">
+          <ScalarProperty Name="IDBilje" ColumnName="IDBilje" />
+          <ScalarProperty Name="Cijena" ColumnName="Cijena" />
+          <ScalarProperty Name="Rod" ColumnName="Rod" />
+          <ScalarProperty Name="Vrsta" ColumnName="Vrsta" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BiljeKupovinas">
+      <EntityTypeMapping TypeName="Model.BiljeKupovina">
+        <MappingFragment StoreEntitySet="BiljeKupovina">
+          <ScalarProperty Name="IDBiljeKupovina" ColumnName="IDBiljeKupovina" />
+          <ScalarProperty Name="Kolicina" ColumnName="Kolicina" />
+          <ScalarProperty Name="CijenaKupovno" ColumnName="CijenaKupovno" />
+          <ScalarProperty Name="IDMjernaJedinica" ColumnName="IDMjernaJedinica" />
+          <ScalarProperty Name="IDPosiljkaKupovina" ColumnName="IDPosiljkaKupovina" />
+          <ScalarProperty Name="IDBilje" ColumnName="IDBilje" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BiljeNarudzbas">
+      <EntityTypeMapping TypeName="Model.BiljeNarudzba">
+        <MappingFragment StoreEntitySet="BiljeNarudzba">
+          <ScalarProperty Name="IDBiljeNarudzba" ColumnName="IDBiljeNarudzba" />
+          <ScalarProperty Name="Kolicina" ColumnName="Kolicina" />
+          <ScalarProperty Name="CijenaDogovoreno" ColumnName="CijenaDogovoreno" />
+          <ScalarProperty Name="IDMjernaJedinica" ColumnName="IDMjernaJedinica" />
+          <ScalarProperty Name="IDPosiljkaNarudzba" ColumnName="IDPosiljkaNarudzba" />
+          <ScalarProperty Name="IDBilje" ColumnName="IDBilje" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BiljeUporabas">
+      <EntityTypeMapping TypeName="Model.BiljeUporaba">
+        <MappingFragment StoreEntitySet="BiljeUporaba">
+          <ScalarProperty Name="IDBiljeUporaba" ColumnName="IDBiljeUporaba" />
+          <ScalarProperty Name="Uporaba" ColumnName="Uporaba" />
+          <ScalarProperty Name="IDBilje" ColumnName="IDBilje" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BiljnaPutovnicas">
+      <EntityTypeMapping TypeName="Model.BiljnaPutovnica">
+        <MappingFragment StoreEntitySet="BiljnaPutovnica">
+          <ScalarProperty Name="IDBiljnaPutovnica" ColumnName="IDBiljnaPutovnica" />
+          <ScalarProperty Name="Naziv" ColumnName="Naziv" />
+          <ScalarProperty Name="Drzava" ColumnName="Drzava" />
+          <ScalarProperty Name="Podrijetlo" ColumnName="Podrijetlo" />
+          <ScalarProperty Name="Kod" ColumnName="Kod" />
+          <ScalarProperty Name="IDBilje" ColumnName="IDBilje" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Kupacs">
+      <EntityTypeMapping TypeName="Model.Kupac">
+        <MappingFragment StoreEntitySet="Kupac">
+          <ScalarProperty Name="IDKupac" ColumnName="IDKupac" />
+          <ScalarProperty Name="Ime" ColumnName="Ime" />
+          <ScalarProperty Name="Prezime" ColumnName="Prezime" />
+          <ScalarProperty Name="BrojTel" ColumnName="BrojTel" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MjernaJedinicas">
+      <EntityTypeMapping TypeName="Model.MjernaJedinica">
+        <MappingFragment StoreEntitySet="MjernaJedinica">
+          <ScalarProperty Name="IDMjernaJedinica" ColumnName="IDMjernaJedinica" />
+          <ScalarProperty Name="MjernaJedinica1" ColumnName="MjernaJedinica" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NarodnoImes">
+      <EntityTypeMapping TypeName="Model.NarodnoIme">
+        <MappingFragment StoreEntitySet="NarodnoIme">
+          <ScalarProperty Name="IDNarodnoIme" ColumnName="IDNarodnoIme" />
+          <ScalarProperty Name="NarodnoIme1" ColumnName="NarodnoIme" />
+          <ScalarProperty Name="IDBilje" ColumnName="IDBilje" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PosiljkaKupovinas">
+      <EntityTypeMapping TypeName="Model.PosiljkaKupovina">
+        <MappingFragment StoreEntitySet="PosiljkaKupovina">
+          <ScalarProperty Name="IDPosiljkaKupovina" ColumnName="IDPosiljkaKupovina" />
+          <ScalarProperty Name="Datum" ColumnName="Datum" />
+          <ScalarProperty Name="IDKupac" ColumnName="IDKupac" />
+          <ScalarProperty Name="IDPosiljkaStanje" ColumnName="IDPosiljkaStanje" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PosiljkaNarudzbas">
+      <EntityTypeMapping TypeName="Model.PosiljkaNarudzba">
+        <MappingFragment StoreEntitySet="PosiljkaNarudzba">
+          <ScalarProperty Name="IDPosiljkaNarudzba" ColumnName="IDPosiljkaNarudzba" />
+          <ScalarProperty Name="Datum" ColumnName="Datum" />
+          <ScalarProperty Name="IDKupac" ColumnName="IDKupac" />
+          <ScalarProperty Name="IDPosiljkaStanje" ColumnName="IDPosiljkaStanje" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PosiljkaStanjes">
+      <EntityTypeMapping TypeName="Model.PosiljkaStanje">
+        <MappingFragment StoreEntitySet="PosiljkaStanje">
+          <ScalarProperty Name="IDPosiljkaStanje" ColumnName="IDPosiljkaStanje" />
+          <ScalarProperty Name="Stanje" ColumnName="Stanje" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rasadniks">
+      <EntityTypeMapping TypeName="Model.Rasadnik">
+        <MappingFragment StoreEntitySet="Rasadnik">
+          <ScalarProperty Name="IDRasadnik" ColumnName="IDRasadnik" />
+          <ScalarProperty Name="Vrsta" ColumnName="Vrsta" />
+          <ScalarProperty Name="Lokacija" ColumnName="Lokacija" />
+          <ScalarProperty Name="IDBilje" ColumnName="IDBilje" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="Model.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,45 @@
+﻿@{
+    ViewBag.Title = "Pocetna";
+}
+<body>
+    <div class="jumbotron" style="background-color:darkseagreen; color:ghostwhite;">
+        <h1>E-Garden</h1>
+        <p class="lead">Web aplikacija iz kolegija Programsko inzenjerstvo.</p>
+        <img src="~/imgs/plant-removebg-preview.png" alt="img" style="float:right;" width="300px" />
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <h2>Matej Stojić</h2>
+            <p>
+                @Html.ActionLink("Matej", "Matej", "Home", new { @class = "btn btn-warning" })
+
+            </p>
+        </div>
+        <div class="col-md-4">
+            <h2>Andrej Pejčinović</h2>
+            <p>
+                @Html.ActionLink("Andrej", "Andrej", "Home", new { @class = "btn btn-info" })
+            </p>
+        </div>
+
+        <div class="col-md-4">
+            <h2>Filip Oroz</h2>
+            <p>
+                @Html.ActionLink("Filip", "Filip", "Home", new { @class = "btn btn-default" })
+            </p>
+        </div>
+        <div class="col-md-4">
+            <h2>Klara Kovačić</h2>
+            <p>
+                @Html.ActionLink("Klara", "Klara", "Home", new { @class = "btn btn-danger" })
+            </p>
+        </div>
+        <div class="col-md-4 ">
+            <h2>Antun Lucijan Mandić</h2>
+            <p>
+                @Html.ActionLink("Antun", "Antun", "Home", new { @class = "btn btn-success" })
+            </p>
+        </div>
+    </div>
+</body>

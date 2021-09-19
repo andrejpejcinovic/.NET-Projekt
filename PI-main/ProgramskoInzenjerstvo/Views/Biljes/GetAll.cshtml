@@ -1,0 +1,44 @@
+﻿@model IEnumerable<ProgramskoInzenjerstvo.Models.Bilje>
+
+@{
+    ViewBag.Title = "GetAll";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>GetAll</h2>
+
+<p>
+    @Html.ActionLink("Print", "Print")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Cijena)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Rod)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Vrsta)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cijena)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Rod)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Vrsta)
+        </td>
+        <td>
+            
+        </td>
+    </tr>
+}
+
+</table>
